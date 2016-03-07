@@ -2,12 +2,14 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
 	<div class="text-center">
 	<h1>Add a new Lesson</h1>
-	</div>
+	</div> 
 	<br />
-	<%= simple_form_for @lesson, url: instructor_section_lessons_path(@section) do |f| %>
+	<%= simple_form_for @lesson, url: instructor_section_lessons_path(current_section) do |f| %>
 	<%= f.input :title %>
 	<%= f.input :subtitle %>
 	<br />
 	<%= f.submit "Add Lesson", class: 'btn btn-warning' %>
+	<br />
+	<br />
 	<% end %>
 </div>
