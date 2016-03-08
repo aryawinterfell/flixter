@@ -7,7 +7,7 @@ def new
 end
 def create
 	@lesson = current_section.lessons.create(lesson_params)
-	redirect_to instructor_course_path(@section.course)
+	redirect_to instructor_course_path(current_section.course)
 end
 
 private
@@ -23,6 +23,6 @@ def current_section
 	@current_section ||= Section.find(params[:section_id])
 end
 def lesson_params
-	params.require(:lesson).permit(:title, :subtitle)
+	params.require(:lesson).permit(:title, :subtitle, :video)
 end
 end
