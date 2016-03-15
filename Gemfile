@@ -35,6 +35,8 @@ gem 'stripe'
 
 gem 'ranked-model'
 
+gem 'jquery-ui-rails'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
