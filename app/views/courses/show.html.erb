@@ -41,18 +41,30 @@
   <div class="col-sm-8 col-xs-12">
     <% @course.sections.rank(:row_order).each do |section| %>
     <br /><br />
-      <div class="section">
+      <div class="lesson-li">
       <h3>
+      <div class="header">
+      <span class="glyphicon glyphicon-grain"></span>
       <%= section.title %>
+      </div>
       </h3>
       <% section.lessons.rank(:row_order).each do |lesson| %>
        <div class="col-xs-12 col-sm-6">
        <div class="lesson text-center">
        <br />
           <%= link_to lesson_path(lesson) do %>
+          <div class="col-xs-1">
+          <span class="glyphicon glyphicon-grain"></span>
+          </div>
+          <div class="col-xs-11">
+           <p>
            <b><%= lesson.title %></b>
-            <br />
+            </p>
+            <p>
            <%= lesson.subtitle %>
+           </p>
+           </div>
+           <br class="clr" />
           <% end %>
           </div>
          </div>
