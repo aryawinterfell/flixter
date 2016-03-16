@@ -106,6 +106,31 @@ body {
   .lesson h3 {
     text-align: center;
   }
-
-
+ul {
+  list-style-type: none;
+}
+.section-li {
+  border: 1px solid;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding:20px;
+  margin:20px;
+}
+ul .header .glyphicon {
+  font-size:25px;
+}
+.lessons li {
+  background: #F5F1C1;
+  margin:10px;
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
+  padding:8px;
+  font-size:15px;
+}
+.lessons li b {
+  font-size:25px;
+  font-weight:100;
+}
+.lessons li p {
+  margin:0;
+}
 
