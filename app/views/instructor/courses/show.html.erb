@@ -1,6 +1,11 @@
-<<br />
+
 <script>
-  $(function() {
+ $(function() {
+        $('.new-lesson-button').click(function( event ) {
+      var lessonUrl = $( event.target).data('lesson-url');
+      $('#newLessonForm').attr('action', lessonUrl);
+    });
+
     $('.lessons').sortable({
       update: function( event, ui ) {
         $.ajax({
@@ -11,8 +16,7 @@
         });
       }
     });
-   });
-  $(function() {
+
     $('.sections').sortable({
       update: function( event, ui ) {
         $.ajax({
@@ -23,6 +27,7 @@
         });
       }
     });
+
    });
 </script>
 
@@ -33,22 +38,28 @@
   <br />
   <%= link_to 'Preview As Student...', course_path(current_course), class: 'btn btn-warning pull-right btn-xs' %>
   <br class="clr" />
-
-  <div class="text-center">
-      <!-- Button trigger modal -->
+ 
+ <!-- Button trigger modal -->
+    <div class="text-center">
     <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#newSectionModal">
       Add a new section...
     </button>
-  </div>
+    </div>
+    <br />
+  
 
   <ul class="sections">
   	<% current_course.sections.rank(:row_order).each do |section| %>
   	  <li data-update-url="<%= instructor_section_path(section) %>" class="section-li">
       <div class="header">
         <span class="glyphicon glyphicon-grain"></span>
+         
          <%= section.title %>
          </div>
-       <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'pull-right btn btn-warning btn-xs' %>
+        <button class="btn btn-warning btn-sm pull-right new-lesson-button" data-toggle="modal" data-target="#newLessonModal" data-lesson-url="<%=instructor_section_lessons_path(section) %>">
+         New Lesson...
+         </button>
+
         <br class="clr" />
         <br class="clr" />
        <ul class="lessons">
@@ -101,3 +112,29 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="newLessonModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="newLessonModalLabel">Add a new lesson</h4>
+      </div>
+       <%= simple_form_for @lesson, url: "#", html: {id: 'newLessonForm' } do |f| %>
+        <div class="modal-body">
+            <%= f.input :title %>
+            <%= f.input :subtitle %>
+            <%= f.input :video %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.submit "Add the lesson", class: 'btn btn-warning' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
