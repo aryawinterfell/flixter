@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href='https://fonts.googleapis.com/css?family=Italianno|Homemade+Apple' rel='stylesheet' type='text/css'>
   <title>Flixter</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -63,32 +64,32 @@
 <div id="footer">
     <div class="container">
       <div class="col-xs-12 col-sm-3">
-        <b>Teachers</b>
+        <ins><b>Teachers</b></ins>
         <br />
         <%= link_to 'Teach a Course', new_instructor_course_path %>
         <br />
         <%= link_to 'My Dashboard', dashboard_path %>
       </div>
       <div class="col-xs-12 col-sm-3">
-        <b>About</b>
+        <ins><b>About</b></ins>
         <br />
-        <%= link_to 'Team', '#' %>
+        <%= link_to 'Team', team_path %>
         <br />
-        <%= link_to 'Careers', '#' %>
+        <%= link_to 'Careers', careers_path %>
         <br />
-        <%= link_to 'Privacy Policy', '#' %>
+        <%= link_to 'Privacy Policy', privacy_path %>
       </div>
       <div class="col-xs-12 col-sm-3">
-        <b>Contact</b>
+        <ins><b>Contact</b></ins>
         <br />
-        ken@thefirehoseproject.com
+        adrianamolello@gmail.com
         <br />
-        One Kendall Square
+        Brooklyn
         <br />
-        Cambridge MA, 02113
+        New York
       </div>
       <div class="col-xs-12 col-sm-3 social">
-        <b>Social</b>
+        <ins><b>Social</b></ins>
         <br />
         <br />
         <%= link_to 'https://github.com/aryawinterfell' do %>
@@ -96,7 +97,10 @@
           <% end %>
         <%= link_to 'https://www.instagram.com/adrianamolello/' do %>
         <%= image_tag '1458250059_5.png', class: 'social-button' %>
-        <% end %>
+          <% end %>
+        <%= link_to 'http://www.molello.com/' do %>
+          <%= image_tag '1458250024_3.png', class: 'social-button' %>
+          <% end %>
       </div>
     </div>
   </div>
