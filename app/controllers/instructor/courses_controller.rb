@@ -1,7 +1,7 @@
 class Instructor::CoursesController < ApplicationController
  	before_action :authenticate_user!
  	before_action :require_authorized_for_current_course,
- 	only: [:show]
+ 	only: [:show, :destroy]
 
  	def new
  		@course = Course.new
@@ -20,6 +20,13 @@ class Instructor::CoursesController < ApplicationController
  	def show
  		@section = Section.new
  		@lesson = Lesson.new
+ 	end
+
+ 	def destroy
+ 		@course = Course.find(params[:id])
+ 		@course.destroy
+ 		redirect_to courses_path
+
  	end
 
  	private

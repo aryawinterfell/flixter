@@ -38,6 +38,8 @@
   <br />
   <%= link_to 'Preview As Student...', course_path(current_course), class: 'btn btn-warning pull-right btn-xs' %>
   <br class="clr" />
+
+   <%= link_to 'Destroy', @course, method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %> 
  
  <!-- Button trigger modal -->
     <div class="text-center">
